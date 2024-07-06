@@ -73,7 +73,10 @@ fi
 
 # Run speedtest-cli, after confirmation
 echo -e "${YELLOW}⚠️  Do you want check the connection speed? (Y/n)${NC}"
-read -r response
+stty -echo
+read -r -n 1 response
+stty echo
+echo
 
 # Convert response to lowercase
 response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
