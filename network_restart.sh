@@ -69,6 +69,13 @@ if check_connectivity; then
     echo -e "${GREEN}✅ Network connectivity is fine.${NC}"
 else
     echo -e "${RED}❌ Network is still unreachable. There might be a deeper issue.${NC}"
+    echo -e "${YELLOW}🔍 Debugging Information:${NC}"
+    echo -e "${YELLOW}Current IP Address and Interface Status:${NC}"
+    ip addr show $INTERFACE
+    echo -e "${YELLOW}Current Routing Table:${NC}"
+    ip route
+    echo -e "${YELLOW}Checking DNS Resolution:${NC}"
+    nslookup google.com
 fi
 
 # Run speedtest-cli, after confirmation
